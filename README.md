@@ -1,2 +1,2 @@
 # sfg-pet-clinic
-SFG Pet Clinic
+SFG hu.atsoft.playground.sfgpetclinic.model.Pet Clinic
