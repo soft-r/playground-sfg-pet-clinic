@@ -47,5 +47,22 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <!--
+                    The following error was thrown: "Could not find a suitable main class, please add a 'mainClass' property"
+                    Based on https://stackoverflow.com/questions/32368328/unable-to-find-a-suitable-main-class-please-add-a-mainclass-property-spring
+                    need to add skip to spring-boot-maven-plugin here to true in the main module
+                    AND need to add the same in the module where the application is with false
+                -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

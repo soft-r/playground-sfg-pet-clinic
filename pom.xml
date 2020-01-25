@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>pet-clinic-data</module>
+		<module>pet-clinic-data</module>
 		<module>pet-clinic-web</module>
 	</modules>
     <parent>
@@ -25,8 +25,17 @@
 	<build>
 		<plugins>
 			<plugin>
+				<!--
+					The following error was thrown: "Could not find a suitable main class, please add a 'mainClass' property"
+					Based on https://stackoverflow.com/questions/32368328/unable-to-find-a-suitable-main-class-please-add-a-mainclass-property-spring
+					need to add skip to spring-boot-maven-plugin here to true in the main module
+					AND need to add the same in the module where the application is with false
+				-->
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -39,9 +48,10 @@
 		</plugins>
 	</build>
 
+	<!--
 	<scm>
 		<developerConnection>scm:git:https://github.com/soft-r/playground-sfg-pet-clinic.git</developerConnection>
 	  <tag>sfg-pet-clinic-0.0.1</tag>
   </scm>
-
+  -->
 </project>
